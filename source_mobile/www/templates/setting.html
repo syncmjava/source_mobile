@@ -1,0 +1,17 @@
+<ion-view view-title="设置">
+  <ion-content>
+      <div class="list">
+
+          <div class="item item-avatar">
+              <img src="img/person.png">
+              <h2>{{user.FullName}}</h2>
+              <p>{{datestr}}</p>
+          </div>
+
+          <div class="item item-text-wrap">
+              <button class="button button-balanced button-full" ng-click="sync()">同步基础数据</button>
+              <button class="button button-assertive button-full" ng-click="signout()">切换用户</button>
+          </div>
+      </div>
+  </ion-content>
+</ion-view>

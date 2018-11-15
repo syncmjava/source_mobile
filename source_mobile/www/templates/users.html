@@ -1,0 +1,16 @@
+<ion-view hide-nav-bar="true">
+  <ion-content>
+    <div class="list" style="margin-top:50px">
+        <label class="item item-input item-select">
+            <div class="input-label">
+                切换其它登录用户
+            </div>
+            <select ng-options="userid as user.user.FullName for user in users" ng-model="selectUserId"></select>
+        </label>
+        <div class="item text-center">
+            <a class="button button-statble" href="#/signin">返回</a>
+            <button class="button button-balanced" ng-click="change()">切换用户</button>
+        </div>
+    </div>
+  </ion-content>
+</ion-view>

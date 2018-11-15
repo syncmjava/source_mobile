@@ -1,0 +1,56 @@
+/*.tabs {
+    border: 0px !important;
+    border-top-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+}*/
+
+.calendar {
+    margin:auto;
+    width: 300px;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid #DEDEDE;
+    border-radius: 2px;
+    opacity:.95;
+    transition: all .5s ease;
+    border: solid 1px #ccc;
+    border-radius: 10px;
+    margin-bottom:30px;
+}
+.calendar table {
+    clear: both;
+    width: 100%;
+    margin-bottom:10px;
+    border-collapse: collapse;
+    color: #444444;
+}
+.calendar td {
+    margin: 2px !important;
+    padding: 4px 8px;
+    width: 14.28571429%;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 12px;
+    line-height: 150%;
+    cursor: pointer;
+}
+.calendar td:hover{
+    background:#f3f8fa;
+}
+.calendar td.week{
+    pointer-events:none !important;
+    cursor: default !important;
+}
+.calendar div.signin {
+    background-color: red;
+    border-radius: 50%;
+    color: #fff;
+}
+.calendar div.today {
+    border-radius: 50%;
+    border: solid 1px #5e7a88;
+}
+.calendar thead td {
+  text-transform: uppercase;
+}

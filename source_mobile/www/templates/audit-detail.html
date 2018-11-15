@@ -1,0 +1,29 @@
+<ion-view view-title="巡检明细">
+  <ion-content>
+      <div class="text-center padding" style="margin-top:20px;">
+          <h3>巡检人: {{audit.Employee.Name}}</h3>
+          <p>巡检时间: {{audit.StartTime | date : 'yyyy-MM-dd H:mm'}}</p>
+      </div>
+      <div class="list">
+          <div class="item item-divider">
+              详细步骤信息
+          </div>
+          <a ng-show="step.IsComplete == 0" ng-repeat="(i, step) in steps" class="item item-icon-left" href="#/tab/audit-step-detail/{{audit.Id}}/{{step.Id}}">
+            <i ng-if="step.Status == 0" class="icon ion-ios-checkmark-outline" style="color:#33cd5f"></i>
+            <i ng-if="step.Status == 1" class="icon ion-ios-close-outline" style="color:#ef473a"></i>
+                {{(i + 1) + ". " + step.Setting.Title}}
+            <span class="item-note">
+                {{step.StartTime | date : 'M/d/yy H:mm'}}
+            </span>
+          </a>
+          <div class="item text-center" ng-show="audit.IsComplete === 1">
+              <a class="button icon-left ion-checkmark-circled button-balanced" href="#/audit/{{audit.Id}}">
+                  继续巡检
+              </a>
+              <a class="button icon-left ion-close-circled button-assertive" ng-click="drop(audit)">
+                  取消巡检
+              </a>
+          </div>
+      </div>
+  </ion-content>
+</ion-view>

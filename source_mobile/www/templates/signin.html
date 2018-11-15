@@ -1,0 +1,27 @@
+<ion-view hide-nav-bar="true">
+  <ion-content>
+    <div class="text-center" style="margin-top:50px">
+      <img src="img/icon.png" style="width:200px;height:200px;">
+    </div>
+    <div style="margin:30px;">
+      <label class="item item-input" style="border-radius:5px;">
+        <i class="icon ion-person placeholder-icon"></i>
+        <input type="text" ng-model="user.username" placeholder="用户名">
+      </label>
+      <div style="height:20px;">
+      </div>
+      <label class="item item-input" style="border-radius:5px;">
+        <i class="icon ion-locked placeholder-icon"></i>
+        <input type="password" ng-model="user.pwd" placeholder="密码">
+      </label>
+    </div>
+    <div style="margin-left:70px;margin-right:70px;">
+        <button ng-click="signin()" class="button button-large button-block button-positive" style="font-weight:bold;border-radius:8px;">
+          登录
+        </button>
+        <a ng-show="isshow" href="#/tab/dash" class="button button-large button-block button-balanced" style="font-weight:bold;border-radius:8px;">
+          返回
+        </a>
+    <div>
+  </ion-content>
+</ion-view>

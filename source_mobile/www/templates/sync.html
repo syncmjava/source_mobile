@@ -1,0 +1,30 @@
+<ion-view view-title="同步" hide-nav-bar="true">
+  <ion-content>
+          <div class="padding" style="color:white; min-height:1000px; background-color: rgba(0, 0, 0, 0.7);">
+                <div style="margin: 15px; min-height:30px;" class="text-center">
+                    <ion-spinner ng-show="isStart" id="spinner" icon="bubbles" class="spinner-calm"></ion-spinner>
+                </div>
+
+                <div class="text-center">
+                    <h3 style="color:white" ng-show="isStart">当前状态: 同步中</h3>
+                    <h3 style="color:white" ng-show="!isStart">当前状态: 同步结束</h3>
+                </div>
+                <h4 style="color:orange; text-align: center">未完成巡检 {{data.unComplete}}</h4>
+                <h4 style="color:orange; text-align: center">未同步巡检 {{data.unSync}}</h4>
+                <h4 style="color:orange; text-align: center">总巡检数 {{data.total}}</h4>
+
+                <div style="text-align: center; margin-top:20px;">
+                    <button class="button button-calm" style="border-radius: 5px; min-height:0px; line-height:33px;" ng-click="start()">
+                        开始同步
+                    </button>
+                    <button class="button button-stable" style="border-radius: 5px; min-height:0px; line-height:33px;" ng-click="stop()">
+                        放弃同步
+                    </button>
+                </div>
+                <div style="float:right;margin-left:30px;margin-top:30px;">
+                    <a href="#/tab/dash">返回巡检中心</a>
+                </div>
+            </div>
+
+  </ion-content>
+</ion-view>

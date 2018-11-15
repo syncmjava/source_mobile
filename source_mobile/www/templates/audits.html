@@ -1,0 +1,21 @@
+<ion-view view-title="巡检记录">
+    <ion-content>
+        <div class="list" id="audits">
+            <a ng-repeat="audit in audits | orderBy:'-StartTime'" class="item item-icon-left" href="#/tab/audit-detail/{{audit.Id}}" style="padding-left: 84px;">
+                <span>
+                    <i ng-if="audit.IsComplete == 0" class="icon ion-happy-outline" style="color:#33cd5f"></i>
+                    <i ng-if="audit.IsComplete == 1" class="icon icon1 ion-sad-outline" style="color:#ef473a"></i>
+
+                    <i ng-if="audit.Status == 0" class="icon ion-ios-checkmark-outline" style="left:44px;color:#33cd5f"></i>
+                    <i ng-if="audit.Status == 1" class="icon icon1 ion-ios-close-outline" style="left:44px;color:#ef473a"></i>
+                </span>
+
+                {{audit.Employee.Name}}
+
+                <span class="item-note">
+                    {{audit.StartTime | date : 'yyyy-MM-dd H:mm'}}
+                </span>
+          </a>
+      </div>
+  </ion-content>
+</ion-view>

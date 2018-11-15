@@ -1,0 +1,27 @@
+<ion-view view-title="巡检中心">
+    <ion-content>
+        <div class="padding" style="margin-top:20px;">
+            <div class="text-center">
+                <h2>{{ship.ShipName}}</h2>
+                <div class="text-center">
+                    <img src={{ship.img}} onerror="this.src='img/ship/default.jpg'" style="border-radius:2%;width:300px;" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-10"></div>
+                <div class="col" style="text-align:center;">
+                    <button class="button button-positive" ng-click="create()">
+                        开始巡检
+                    </button>
+                </div>
+                <div class="col" style="text-align:center;">
+                    <a class="button button-calm" href="#/sync">
+                        数据同步
+                        <!--<span class="badge badge-energized">{{data.unSync}}</span>-->
+                    </a>
+                </div>
+                <div class="col col-10"></div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,11 @@
+{
+  "name": "船舶巡检",
+  "short_name": "船舶巡检",
+  "start_url": "index.html",
+  "display": "standalone",
+  "icons": [{
+    "src": "icon.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}

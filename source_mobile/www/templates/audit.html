@@ -1,0 +1,97 @@
+<ion-view hide-nav-bar="true">
+  <ion-content>
+      <div class="list" ng-show="loaded">
+          <label class="item item-input item-select">
+              <div class="input-label">巡检人</div>
+              <select ng-options="employee.EmployId as employee.Name for employee in employees" ng-model="audit.EmployeeId"></select>
+          </label>
+          <label class="item item-stacked-label">
+              <div class="input-label">巡检时间</div>
+              {{audit.StartTime | date : 'yyyy-MM-dd H:mm'}}
+          </label>
+          <label class="item item-stacked-label">
+              <div class="input-label">巡检名称</div>
+              {{ship.ShipAuditTitle}}
+          </label>
+          <label class="item item-stacked-label">
+              <div class="input-label">巡检概述</div>
+              {{ship.ShipAuditDescription}}
+          </label>
+          <div class="text-center padding" style="margin-top:20px;">
+              <a class="button icon-right ion-chevron-right button-positive" ng-click="start()">确定开始巡检</a>
+          </div>
+      </div>
+
+      <div ng-show="!loaded">
+          <div class="list" ng-repeat="(index,step) in steps" ng-show="index == s || IsComplete == 1">
+              <div class="item item-divider">
+                  {{index + 1}} - {{step.Title}}
+              </div>
+              <div class="item">
+                  检查位置: {{step.Place}}
+              </div>
+              <div class="item">
+                  检查内容: <p ng-bind-html="step.Description"></p>
+              </div>
+              <div class="item text-center" ng-show="step.status == 'start'">
+                  <h2 style="color:red" class="padding">
+                      请扫描相对应的二维码
+                  </h2>
+                  <button class="button button-large button-block button-positive ion-qr-scanner" ng-click="scan(step)">  扫描</button>
+                  <button class="button button-block button-stable ion-log-out" ng-click="skip(step)">  跳过</button>
+              </div>
+
+              <div class="item-divider text-center padding" ng-show="step.status == 'confirm'" >
+                  <h3 class="padding">结果确认</h3>
+                  <div class="padding">
+                      <!-- {{audit.StepsData[s].Result}} -->
+                  </div>
+                  <div>
+                      <a class="button icon-left ion-checkmark-circled button-balanced" ng-click="success(step)">
+                          正常
+                      </a>
+                      <a class="button icon-left ion-close-circled button-assertive" ng-click="fail(step)">
+                          异常
+                      </a>
+                  </div>
+              </div>
+
+              <div class="item" ng-show="step.status == 'exception'">
+                  <div class="list">
+                      <div class="item item-divider padding">
+                          检查内容以及判断异常标准
+                      </div>
+                      <ion-list ng-repeat="exception in step.ExceptionList">
+                          <ion-checkbox ng-model="exception.selected">{{exception.Idx}} - {{exception.Title}}</ion-checkbox>
+                      </ion-list>
+                      <div class="item" ng-show="audit.StepsData[s].ExceptionImages.length > 0">
+                          <div ng-repeat="image in audit.StepsData[s].ExceptionImages">
+                              <img ng-src="{{image}}" style="width:200px;height:200px;" />
+                              <button class="button button-small button-assertive" ng-click="removeImage(image)">删除</button>
+                          </div>
+                      </div>
+                      <label class="item item-input item-stacked-label">
+                          <span class="input-label">拍照上传</span>
+                          <button style="width:70px;" class="button button-large icon button-balanced ion-camera" ng-click="takeImage(step)"></button>
+                      </label>
+                  </div>
+                  <div class="text-center">
+                      <a class="button button-positive" ng-click="exception(step)">确定异常</a>
+                  </div>
+              </div>
+          </div>
+          <div class="text-center padding">
+              <!-- <a class="button icon-left ion-chevron-left button-balanced" href='#/tab/audits'>暂停巡检</a> -->
+              <!-- <a class="button icon-left ion-chevron-left button-balanced" ng-click="back()">重新选择</a>
+              <a class="button icon-right ion-chevron-right button-positive" ng-show="s < (steps.length-1)" ng-click="next()">下一步</a>
+              <a class="button icon-right ion-chevron-right button-positive" ng-show="s == (steps.length-1)" ng-click="next()">巡检完成</a> -->
+          </div>
+      </div>
+
+  </ion-content>
+  <div class="bar bar-footer bar-stable" ng-show="!loaded">
+      <div style="position:fixed;bottom:10px; right:20px;width:200px;text-align:right;">
+          {{s + 1}} / {{steps.length}}检查项
+      </div>
+  </div>
+</ion-view>

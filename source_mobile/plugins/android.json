@@ -1,0 +1,41 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.captain.check"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.captain.check"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.captain.check"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.captain.check"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.captain.check"
+        },
+        "phonegap-plugin-barcodescanner": {
+            "CAMERA_USAGE_DESCRIPTION": " ",
+            "PACKAGE_NAME": "com.captain.check"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.captain.check"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.captain.check"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.captain.check"
+        }
+    }
+}
